@@ -33,16 +33,16 @@ public class H2DBController {
 	{
 		Employee employee = new Employee();
 		employee.setEmpName(empName);
-		List<Employee> empList = employeeRepo.findByEmpName(empName);
+		List<Employee> empList = employeeRepo.findByEmpNameIgnoreCase(empName);
 		if(empList.isEmpty())
 		{
 			employeeRepo.saveAndFlush(employee);
 		}
 		else
 		{
-			return new ArrayList<>(Arrays.asList("The employee name " + empName + " already exist"));
+			return new ArrayList<>(Arrays.asList("The employee name " + empName + " already exists"));
 		}
 		
-		return employeeRepo.findByEmpName(empName);
+		return employeeRepo.findByEmpNameIgnoreCase(empName);
 	}
 }

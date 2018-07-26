@@ -10,6 +10,6 @@ import com.logantechsource.h2db.entity.Employee;
 public interface EmployeeRepo extends JpaRepository<Employee, Integer>
 {
 
-	List<Employee> findByEmpName(String empName);
+	List<Employee> findByEmpNameIgnoreCase(String empName);
 	
 }
